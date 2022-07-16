@@ -14,9 +14,9 @@ on:
 
 env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni
-  DEVICE: CPH1861
-  DT_LINK: https://github.com/mastersenpai0405/twrp_device_xiaomi_camellia/tree/android-11.0
-  DT_PATH: device/oppo/CPH1861
+  DEVICE: camellia
+  DT_LINK: https://github.com/mastersenpai0405/twrp_device_xiaomi_camellia
+  DT_PATH: device/xiaomi/camellia
   TARGET: bootimage
   TZ: Asia/Kolkata
 
