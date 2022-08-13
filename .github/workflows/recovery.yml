@@ -1,17 +1,5 @@
 name: Building recovery
 
-on:
-#  release:
-#    types: [published]
-#  push:
-#    branches:
-#      - master
-#    paths:
-#      - '.config'
-#  schedule:
-#    - cron: 0 8 * * 5
-  workflow_dispatch:
-
 env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni
   DEVICE: camellia
@@ -49,7 +37,7 @@ jobs:
          run: |
              mkdir work
              cd work
-             repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+             repo init --depth=1 -u $MANIFEST
              repo sync -c -j4 --force-sync --no-clone-bundle --no-tags
              git clone $DT_LINK --depth=1 --single-branch $DT_PATH
              
@@ -64,9 +52,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          with:
           tag_name: v0.1
-          name: F2FS test
+          name: my_twrp
           files: | 
-            work/out/target/product/camellia/boot.img
+            work/out/target/product/$DEVICE/boot.img
 
 
 
